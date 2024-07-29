@@ -21,8 +21,8 @@ export default function Pagination() {
         
         // eslint-disable-next-line no-throw-literal
         // throw "failed to fetch data";
-        setError(1)
-        console.error("failed to fetch data");
+        // setError(1)
+        console.error("failed to fetch data",error);
         window.alert('failed to load data')
       }
     };
@@ -50,8 +50,10 @@ export default function Pagination() {
     <div>
       <h1>Employee Data Table</h1>
 
-      {
-        error ? <div>failed to fetch data</div>:<div> <table className={styles.tables}>
+      {/* {
+        error ? <div>failed to fetch data</div>:<div> </div>
+      } */}
+  <table className={styles.tables}>
         <thead>
           <tr className={styles.head}>
             <th>ID</th>
@@ -78,9 +80,7 @@ export default function Pagination() {
         <button onClick={previous}>Previous</button>
         <p className={styles.para}>{currentpage}</p>
         <button onClick={next}>Next</button>
-      </div></div>
-      }
-  
+      </div>
      
     </div>
   );
