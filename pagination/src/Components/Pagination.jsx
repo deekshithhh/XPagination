@@ -22,7 +22,8 @@ export default function Pagination() {
         // eslint-disable-next-line no-throw-literal
         // throw "failed to fetch data";
         setError(1)
-        console.error("failed to fetch data")
+        console.error("failed to fetch data");
+        window.alert('failed to load data')
       }
     };
     fetchdata();
