@@ -5,6 +5,7 @@ import styles from "./Pagination.module.css";
 export default function Pagination() {
   const [data, setData] = useState([]);
   const [currentpage, setCurrentPage] = useState(1);
+  const [error,setError]=useState('')
   const count = 10;
 
   useEffect(() => {
@@ -16,8 +17,10 @@ export default function Pagination() {
         );
         setData(response.data);
         console.log(response.data);
-      } catch (error) {
-        console.alert("failed to fetch data",error)
+      } catch  {
+        
+        // eslint-disable-next-line no-throw-literal
+        throw "failed to fetch data"
       }
     };
     fetchdata();
