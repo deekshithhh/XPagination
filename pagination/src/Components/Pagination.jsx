@@ -5,7 +5,7 @@ import styles from "./Pagination.module.css";
 export default function Pagination() {
   const [data, setData] = useState([]);
   const [currentpage, setCurrentPage] = useState(1);
-  const [error,setError]=useState('')
+  const [error,setError]=useState(0)
   const count = 10;
 
   useEffect(() => {
@@ -21,6 +21,7 @@ export default function Pagination() {
         
         // eslint-disable-next-line no-throw-literal
         // throw "failed to fetch data";
+        setError(1)
         console.error("failed to fetch data")
       }
     };
@@ -47,7 +48,9 @@ export default function Pagination() {
   return (
     <div>
       <h1>Employee Data Table</h1>
-      <table className={styles.tables}>
+
+      {
+        error ? <div>failed to fetch data</div>:<div> <table className={styles.tables}>
         <thead>
           <tr className={styles.head}>
             <th>ID</th>
@@ -56,7 +59,8 @@ export default function Pagination() {
             <th>Role</th>
           </tr>
         </thead>
-        <tbody>
+      <tbody>
+
           {Employeedata.map((employee) => (
             <tr>
               <td>{employee.id}</td>
@@ -66,13 +70,17 @@ export default function Pagination() {
             </tr>
           ))}
         </tbody>
+        
       </table>
 
       <div className={styles.footer}>
         <button onClick={previous}>Previous</button>
         <p className={styles.para}>{currentpage}</p>
         <button onClick={next}>Next</button>
-      </div>
+      </div></div>
+      }
+  
+     
     </div>
   );
 }
