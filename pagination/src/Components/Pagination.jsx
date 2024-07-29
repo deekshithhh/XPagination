@@ -16,11 +16,12 @@ export default function Pagination() {
           "https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json"
         );
         setData(response.data);
-        console.log(response.data);
-      } catch  {
+        // console.log(response.data);
+      } catch (error) {
         
         // eslint-disable-next-line no-throw-literal
-        throw "failed to fetch data"
+        // throw "failed to fetch data";
+        console.error("failed to fetch data")
       }
     };
     fetchdata();
