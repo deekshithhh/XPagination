@@ -27,16 +27,16 @@ export default function Pagination() {
       }
     };
     fetchdata();
-  }, []);
+  }, [data]);
 
   const previous = () => {
-    console.log("Previous");
+    // console.log("Previous");
     if (currentpage > 1) {
       setCurrentPage(currentpage - 1);
     }
   };
   const next = () => {
-    console.log("Next", currentpage, data.length / count);
+    // console.log("Next", currentpage, data.length / count);
     if (currentpage < data.length / count) {
       setCurrentPage(currentpage + 1);
     }
