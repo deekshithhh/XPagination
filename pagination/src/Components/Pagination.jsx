@@ -23,7 +23,7 @@ export default function Pagination() {
         // throw "failed to fetch data";
         // setError(1)
         console.error("failed to fetch data",error);
-        window.alert('failed to load data')
+        window.alert('failed to fetch data')
       }
     };
     fetchdata();
